@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {},
+  "extends": "expo/tsconfig.base",
+  "include": ["src/components", "src/utils", "custom.d.ts","metro.config.js"]
+
+}
