@@ -9,7 +9,8 @@ import Loading from '../Loading';
 const Container = styled.View`
   flex: 1;
   position: relative;
-  background-color: white;`;
+  background-color: white;
+  `;
 
 const PokemonList = styled(FlatList as new () => FlatList<Pokemon>)`
    flex: 1;

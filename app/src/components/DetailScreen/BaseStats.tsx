@@ -34,10 +34,17 @@ export const StatValue = styled(Animated.View)<StatValueProps>`
   width: ${props => props.width}%;
 `;
 
+export const BaseStatsContainer = styled.View`
+  margin: 10px;
+  height: 220px;
+  justify-content: center;
+  border-radius: 5px;
+`;
+
 
 const BaseStats = (pokemon) => {
   return (
-    <>
+    <BaseStatsContainer>
       {pokemon.stats.map(stat => (
         <Stat key={stat.url}>
           <Text style={{ width: 100 }}>
@@ -55,7 +62,7 @@ const BaseStats = (pokemon) => {
           </StatGraph>
         </Stat>
       ))}
-    </>
+    </BaseStatsContainer>
   );
 };
 

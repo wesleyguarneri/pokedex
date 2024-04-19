@@ -14,7 +14,7 @@ export const NameWrapper = styled.View`
 export const PokedexName = styled.Text`
   color: black;
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 600;
   flex:5.5;
 `;
 

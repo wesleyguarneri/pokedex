@@ -17,7 +17,7 @@ const CategoryBox = styled.View`
 
 const AbilityContainer = styled.View`
     position: relative;
-    flex: 2;
+    flex: 3;
 `;
 
 const AbilityText = styled.Text`

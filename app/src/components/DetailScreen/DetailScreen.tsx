@@ -5,7 +5,7 @@ import getIconByPokemonType from '../../utils/getIconByPokemonType';
 import { useRoute } from '@react-navigation/native';
 import styled from 'styled-components/native';
 import { Image } from 'expo-image';
-import { Alert, Animated, ScrollView, Text } from 'react-native';
+import { Alert, Animated, ScrollView} from 'react-native';
 import { PokedexName, PokedexNumber, PokemonImage, NameWrapper, ImageWrapper, TypeWrapper, TypeText, TypeContainer, MetricsWrapper, Metrics } from './styles';
 import { GestureHandlerRootView, RectButton } from 'react-native-gesture-handler';
 import { capitalizeString } from '../../utils/capitalizeString';
