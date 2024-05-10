@@ -24,7 +24,8 @@ const AbilityText = styled.Text`
     justify-content: center;
     font-size: 16px;
     text-align: center;
-    width: max;
+    width: 100%;
+
 
 `;
 const CategoryText = styled.Text`

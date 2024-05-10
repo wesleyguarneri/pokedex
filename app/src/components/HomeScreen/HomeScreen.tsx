@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
-import { Alert, Animated, FlatList, Text } from 'react-native';
+import { Alert, Animated, Button, FlatList, Text } from 'react-native';
 import styled from 'styled-components/native';
 import api from '../../services/api';
 import Pokemon from '../../types/pokemon';

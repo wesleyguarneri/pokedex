@@ -18,7 +18,7 @@ const EntryText = styled.Text`
     justify-content: center;
     font-size: 16px;
     text-align: center;
-    width: max;
+    width: 100%;
     flex: 2;
     padding: 5px;
 

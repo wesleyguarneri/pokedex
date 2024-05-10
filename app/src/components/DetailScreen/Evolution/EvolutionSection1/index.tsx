@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { Container, Pokemon, PokemonImage, MinLevel} from './styles';
-import { Icon } from 'react-native-elements'
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 
 type EvolutionSectionProps = {
@@ -28,10 +28,10 @@ const EvolutionSection = ({
       </Pokemon>
 
       <MinLevel>
-      <Icon name="arrow-right" size={20} color="black" type="entypo" />
-        <Text style={{ marginTop: 8 }}>
+      <Ionicons name="arrow-forward-outline" size={32} />
+        {minLevel && (<Text style={{ marginTop: 8 }}>
           Lvl {minLevel}
-        </Text>
+        </Text>)}
       </MinLevel>
 
       <Pokemon>

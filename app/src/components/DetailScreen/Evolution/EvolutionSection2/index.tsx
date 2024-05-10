@@ -38,10 +38,10 @@ const EvolutionSection2 = ({
       </Pokemon>
 
       <MinLevel>
-      <Ionicons name="checkmark-circle" size={32} color="green" />
-        <Text style={{ marginTop: 8 }}>
+      <Ionicons name="arrow-forward-outline" size={32} />
+        {minLevel1 && (<Text style={{ marginTop: 8 }}>
           Lvl {minLevel1}
-        </Text>
+        </Text>)}
       </MinLevel>
 
       <Pokemon>
@@ -50,10 +50,10 @@ const EvolutionSection2 = ({
       </Pokemon>
 
       <MinLevel>
-      <Ionicons name="checkmark-circle" size={32} color="green" />
-        <Text style={{ marginTop: 8 }}>
+      <Ionicons name="arrow-forward-outline" size={32} />
+        {minLevel2 && (<Text style={{ marginTop: 8 }}>
           Lvl {minLevel2}
-        </Text>
+        </Text>)}
       </MinLevel>
 
       <Pokemon>

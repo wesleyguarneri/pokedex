@@ -10,6 +10,7 @@ type TypeProps = {
 export const NameWrapper = styled.View`
     height: 30px;
     flex-direction: row;
+    background-color: white;
 `;
 export const PokedexName = styled.Text`
   color: black;
@@ -41,7 +42,8 @@ export const ImageWrapper = styled.View<TypeProps>`
     overflow: hidden;
     height: 300px;
     margin-horizontal: 20px;
-    width: max;
+    width: 100%;
+
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
 
     ${props =>
@@ -80,6 +82,7 @@ export const MetricsWrapper = styled.View`
   justify-content: center;
   height: 50px;
   flex-direction: row;
+  
 `;
 
 export const Metrics = styled.Text`

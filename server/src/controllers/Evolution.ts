@@ -23,8 +23,6 @@ export default class EvolutionController {
       `/evolution-chain/${pokemonIdInEvolutionChain}`,
     );
 
-    console.log(evolutionChain);
-
     const evolutionFormatted = evolutionChain.chain.evolves_to.map(evolves => {
       const {
         name: baseFormName,
