@@ -4,13 +4,12 @@ import getColorByPokemonType from '../../utils/getColorByPokemonType';
 import getIconByPokemonType from '../../utils/getIconByPokemonType';
 import { useRoute } from '@react-navigation/native';
 import styled from 'styled-components/native';
-import { Image } from 'expo-image';
-import { Alert, Animated, ScrollView} from 'react-native';
-import { PokedexName, PokedexNumber, PokemonImage, NameWrapper, ImageWrapper, TypeWrapper, TypeText, TypeContainer, MetricsWrapper, Metrics } from './styles';
+import { Alert, Animated, ScrollView, View, StyleSheet, Text, Image} from 'react-native';
+import { styles, ImageStyles } from './styles'
 import { GestureHandlerRootView, RectButton } from 'react-native-gesture-handler';
 import { capitalizeString } from '../../utils/capitalizeString';
 import api from '../../services/api';
-import PokedexEntry from './PokedexEntry';
+import PokedexEntry from './PokemonDescription/PokedexEntry';
 import Abilities from './Abilities';
 import BaseStats from './BaseStats';
 import Evolution from './Evolution/Evolution';
@@ -34,33 +33,35 @@ const DetailScreen = () => {
    ) : null;
    
    return (
-      <ScrollView>
-      <NameWrapper>
-         <PokedexNumber>#{pokemon.pokedex_number}</PokedexNumber>
-         <PokedexName>{pokemon.name}</PokedexName>
-      </NameWrapper>
+      <ScrollView 
+         style={{marginLeft:25,marginRight:25}}
+         showsVerticalScrollIndicator={false}>
+      <View  style={ImageStyles(pokemon.types[0].name).imageWrapper}>
+         <Image style={styles.pokemonImage} source={{uri: pokemon.animated_image || pokemon.image}} onError={() => {console.log('error:'+pokemon.image)}}/>
+      </View>
 
-      <ImageWrapper pokemonType = {pokemon.types[0].name}>
-         <PokemonImage source={{uri: pokemon.animated_image || pokemon.image}} onError={() => {console.log('error:'+pokemon.image)}}/>
-      </ImageWrapper>
+      <View style={styles.nameWrapper}>
+         <Text style={styles.pokedexName}>{pokemon.name}</Text>
+         <Text style={styles.pokedexNumber}>#{pokemon.pokedex_number}</Text>
+      </View>
 
-      <TypeContainer>
-         <TypeWrapper>
+      <View style ={styles.typeContainer}>
+         <View style ={styles.typeWrapper}>
             <TypeIcon1 height='auto' width='20%'/>
-            <TypeText>{capitalizeString(pokemon.types[0].name)}</TypeText>
-         </TypeWrapper>
+            <Text style= {styles.typeText}>{capitalizeString(pokemon.types[0].name)}</Text>
+         </View>
          
-         {(pokemon.types.length > 1) ? <TypeWrapper>
+         {(pokemon.types.length > 1) ? <View style ={styles.typeWrapper}>
             <TypeIcon2 height='auto' width='20%'/>
-            <TypeText>{capitalizeString(pokemon.types[1].name)}</TypeText>
-         </TypeWrapper> : null}
-      </TypeContainer>
+            <Text style= {styles.typeText}>{capitalizeString(pokemon.types[1].name)}</Text>
+         </View> : null}
+      </View>
 
       <PokedexEntry pokemonDescription={pokemon.description} pokemonCategory={pokemon.genera}/>
 
-      <MetricsWrapper>
-         <Metrics>{pokemon.height.toString()} ft / {pokemon.weight.toString()} lbs.</Metrics>
-      </MetricsWrapper>
+      <View style = {styles.metricsWrapper}>
+         <Text style = {styles.metricsWrapper}>{pokemon.height.toString()} ft / {pokemon.weight.toString()} lbs.</Text>
+      </View>
 
       <Abilities abilities={pokemon.abilities}/>
 

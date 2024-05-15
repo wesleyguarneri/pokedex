@@ -1,90 +1,85 @@
-import styled, { css } from 'styled-components/native';
-import getColorByPokemonType from '../../utils/getColorByPokemonType';
+import { StyleSheet,View } from "react-native";
+import getColorByPokemonType from "../../utils/getColorByPokemonType";
+
+export const styles = StyleSheet.create({
+  nameWrapper: {
+      height: 40,
+      flexDirection: 'row',
+      backgroundColor: 'white',
+      alignItems: 'center',
+      justifyContent: 'center',
+  },
+  pokedexName: {
+    color: 'black',
+    fontSize: 32,
+    fontWeight: '600',
+    flex: 4,
+  },
+  pokedexNumber: {
+    fontSize: 18,
+    fontWeight: '700',
+    borderRadius: 5,
+    color: 'rgba(0,0,0,.5)'
+  },
+  pokemonImage: {
+    width: 200,
+    height: 200,
+    flex: 1,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    resizeMode: 'contain',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+ 
+  typeContainer: {
+    height: 50,
+    marginTop: 5,
+    flexDirection: 'row',    
+    justifyContent: 'flex-start',
+
+  },
+  typeWrapper: {
+    height: 30,
+    width: 90,
+    margin: 5,
+    borderRadius: 5,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderColor: 'black',
+  },
+  typeText: {
+    color: 'black',
+    fontSize: 18,
+    fontWeight: '500',
+    marginTop: 3,
+    marginHorizontal: 5,
+  },
+  metricsWrapper: {
+    justifyContent: 'center',
+    height: 50,
+    flexDirection: 'row',
+  },
+  metrics: {
+    fontSize: 18,
+  },
+  });
 
 
-type TypeProps = {
-    pokemonType: string;
-  };
+  export const ImageStyles = (pokemonType: string) => StyleSheet.create({
+    imageWrapper: {
+      borderRadius: 5,
+      overflow: 'hidden',
+      height: 300,
+      width: 'auto',
 
-  
-export const NameWrapper = styled.View`
-    height: 30px;
-    flex-direction: row;
-    background-color: white;
-`;
-export const PokedexName = styled.Text`
-  color: black;
-  font-size: 24px;
-  font-weight: 600;
-  flex:5.5;
-`;
+      shadowOpacity: 1,
+      backgroundColor: getColorByPokemonType(pokemonType),
+    },
+  })
 
-export const PokedexNumber = styled.Text`
-    font-size: 18px;
-    font-weight: 700;
-    margin-top: 3px;
-    border-radius: 5px;
-    padding-horizontal: 5px;
-    margin-right: 5px;
-    flex:3;
-    `;
 
-export const PokemonImage = styled.Image`
-  width: 200px;
-  height: 200px;
-  margin: auto;
-  resizeMode: contain;
-  justify-content: center;
-`;
+  export default styles;
 
-export const ImageWrapper = styled.View<TypeProps>`
-    border-radius: 5%;
-    overflow: hidden;
-    height: 300px;
-    margin-horizontal: 20px;
-    width: 100%;
-
-    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
-
-    ${props =>
-        props.pokemonType &&
-        css`
-          background-color: ${getColorByPokemonType(props.pokemonType)};
-        `}
-`;
-
-export const TypeContainer = styled.View`
-    justify-content: center;
-    height: 50px;
-    flex-direction: row;
-`;
-
-export const TypeWrapper = styled.View`
-    height: 30px;
-    width: 90px;
-    margin: 5px;
-    border-radius: 5px;
-    justify-content: center;
-    flex-direction: row;
-    background-color: white;
-    border: 1px solid black;
-`;
-
-export const TypeText = styled.Text`
-    color: black;
-    font-size: 18px;
-    font-weight: 500;
-    margin-top: 3px;
-    margin-horizontal: 5px;
-`;
-
-export const MetricsWrapper = styled.View`
-  justify-content: center;
-  height: 50px;
-  flex-direction: row;
-  
-`;
-
-export const Metrics = styled.Text`
-  font-size: 18px;
-`;

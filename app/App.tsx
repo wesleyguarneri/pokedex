@@ -43,11 +43,11 @@ export default function App() {
         component={DetailScreen} 
         />
 
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Camera"
           component={CameraScreen}
         >
-        </Stack.Screen>
+        </Stack.Screen> */}
       </Stack.Navigator>
     </NavigationContainer>
     

@@ -1,32 +1,18 @@
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
-import { Alert, Animated, Button, FlatList, Text } from 'react-native';
-import styled from 'styled-components/native';
+import { Alert, Animated, FlatList, View } from 'react-native';
 import api from '../../services/api';
 import PokemonCard from './PokemonCard/PokemonEntry';
 import Loading from '../Loading';
-import { ImageWrapper, PokemonImage } from './styles';
+import { styles } from './styles';
 import Pokemon, { Pokemon as PokemonType } from '../../types/pokemon';
-import FirstPokemonCard from './FirstPokemonCard/PokemonEntry';
-import Ionicons from '@expo/vector-icons/Ionicons';
+
 
 export type RouteParams = {
    pokemon: PokemonType;
  };
 
 
-const Container = styled.View`
-  flex: 1;
-  position: relative;
-  `;
-
-const PokemonList = styled(FlatList as new () => FlatList<Pokemon>)`
-   flex: 1;
-   margin-top: 8px;
-`;
-
 const API_OFFSET = 18;
-
-const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
 
 const ListScreen = ({ navigation }) => {
@@ -92,21 +78,18 @@ const ListScreen = ({ navigation }) => {
     }, [loadPokemons]);
 
    return (
-      <Container>
-         {/* <ImageWrapper pokemonType = {'grass'}>
-            <PokemonImage source={{uri: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png'}} onError={() => {console.log('error')}}/>
-         </ImageWrapper> */}
+      <View style={styles.contentContainer}>
          <FlatList
             data={pokemons}
             showsVerticalScrollIndicator={true}
-            contentContainerStyle={{ paddingBottom: 24, paddingHorizontal: 24 }}
+            columnWrapperStyle={styles.flatList}
             onRefresh={refreshList}
             refreshing={refreshing}
             keyExtractor={pokemon => String((pokemon as Pokemon).id)}
             onEndReached={() => loadPokemons()}
             onEndReachedThreshold={0.5}
             ListFooterComponent={ListFooterComponent}
-            numColumns={1}
+            numColumns={3}
             scrollEventThrottle={16}
             renderItem={({item: pokemon, index })=>{
                return(
@@ -117,7 +100,7 @@ const ListScreen = ({ navigation }) => {
             }
          }
          />
-      </Container>
+      </View>
       )
       
 }

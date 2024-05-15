@@ -1,56 +1,65 @@
-import styled, { css } from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
-import { Animated } from 'react-native';
+import { StyleSheet } from 'react-native';
 import getColorByPokemonType from '../../../utils/getColorByPokemonType';
-import { useMemo } from 'react';
 
-type ButtonProps = {
-  pokemonType: string;
-};
+export const Container = (pokemonType: string) => StyleSheet.create({
+  container: {
+    borderRadius: 5,
+    overflow: 'hidden',
+    height: 140,
+    margin: 'auto',
+    marginTop: 3,
+    width: 120,
+    shadowColor: 'rgba(0, 0, 0, 0.15)',
+    shadowOffset: {
+      width: 2,
+      height: 4,
+    },
+    shadowOpacity: 1,
+    borderStyle: 'solid',
+    borderWidth: 2,
+    borderColor: getColorByPokemonType(pokemonType),
+    backgroundColor: `${getColorByPokemonType(pokemonType)}30`    
+  },
+})
 
-export const Container = styled.View<ButtonProps>`
-  border-radius: 5%;
-  overflow: hidden;
-  height: 90px;
-  margin: 5px;
-  padding: 10px;
-  width: 100%;
+export const pokedexInfoContainer = (pokemonType: string) => StyleSheet.create({
+  pokedexInfoContainer: {
+    width: '100%',
+    height: 30,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: `${getColorByPokemonType(pokemonType)}80`,
+  },
+})
 
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
+export const styles = StyleSheet.create({
+  pokemonImage: {
+    width: 100,
+    height: 100,
+    position: 'absolute',
+    bottom: 4,
+    right: 4,
+  },
+  pokedexName: {
+    color: 'white',
+    fontSize: 14,
+    fontWeight: '700',
+    flexGrow: 1,
+    flexShrink: 2,
+    flexBasis:'auto'
+    // textAlign: 'right',
+  },
+  pokedexNumber: {
+    fontSize: 12,
+    fontWeight: '700',
+    // backgroundColor: 'rgba(0,0,0,.1)',
+    color:'white',
+    flexGrow: 1,
+    flexShrink: 1,
+    flexBasis:'auto'
+  },
+});
 
-${props =>
-  props.pokemonType &&
-  css`
-    background-color: ${getColorByPokemonType(props.pokemonType)};
-  `}
-`;
-
-export const PokemonImage = styled.Image`
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  bottom: 4px;
-  right: 4px;
-`;
-
-export const Button = styled(RectButton)`
-position: relative;
-`;
-
-export const PokedexName = styled.Text`
-  color: white;
-  font-size: 24px;
-  font-weight: 700;
-  zIndex: 1;
-`;
-
-export const PokedexNumber = styled.Text`
-  font-size: 14px;
-  font-weight: 700;
-  zIndex: 2;
-  background-color: rgba(0,0,0,.1);
-  margin-top: 5px;
-  padding-horizontal: 5px;
-  align-self: flex-start;
-
-`;
+export default styles;

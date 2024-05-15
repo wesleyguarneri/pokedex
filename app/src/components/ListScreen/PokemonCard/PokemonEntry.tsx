@@ -3,12 +3,12 @@ import styled from 'styled-components/native';
 import { useNavigation } from '@react-navigation/native';
 
 import { Pokemon as PokemonType } from '../../../types/pokemon';
-import { Animated, Text } from 'react-native';
-import { Container, PokemonImage, PokedexName, Button, PokedexNumber } from './styles';
+import { Animated, Text, View } from 'react-native';
+import { Container, styles, pokedexInfoContainer} from './styles';
 import { Image } from 'expo-image';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import getColorByPokemonType from '../../../utils/getColorByPokemonType';
-
+import { RectButton } from 'react-native-gesture-handler';
 
 
 
@@ -30,19 +30,18 @@ const PokemonCard = ({pokemon,opacity,}: PokemonCardProps) => {
 
   return(
     <GestureHandlerRootView>
-      <Button 
+      <RectButton 
       onPress={handleDetailsNavigation}
       >
-        <Container
-          pokemonType = {pokemon.types[0].name}
-        >
-        <PokedexName style={{color:"white"}}>{pokemon.name}</PokedexName>
-        <PokedexNumber>#{pokemon.pokedex_number}</PokedexNumber>
+        <View style={Container(pokemon.types[0].name).container}>
+          <View style={pokedexInfoContainer(pokemon.types[0].name).pokedexInfoContainer}>
+            <Text style={styles.pokedexNumber}>{pokemon.pokedex_number}</Text>
+            <Text style={styles.pokedexName}>{pokemon.name}</Text>
+          </View>
+          <Image style={styles.pokemonImage} source={{uri: pokemon.image}} onError={() => {console.log('error:'+pokemon.image)}}/>
+        </View>
 
-        <PokemonImage source={{uri: pokemon.image}} onError={() => {console.log('error:'+pokemon.image)}}/>
-        </Container>
-
-      </Button>
+      </RectButton>
     </GestureHandlerRootView>
   )
 };  
