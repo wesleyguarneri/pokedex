@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
   pokedexName: {
     color: 'black',
     fontSize: 32,
-    fontWeight: '600',
+    fontWeight: '700',
     flex: 4,
   },
   pokedexNumber: {
@@ -59,7 +59,7 @@ export const styles = StyleSheet.create({
   },
   metricsWrapper: {
     justifyContent: 'center',
-    height: 50,
+    height: 25,
     flexDirection: 'row',
   },
   metrics: {

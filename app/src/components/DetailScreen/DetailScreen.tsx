@@ -11,7 +11,7 @@ import { capitalizeString } from '../../utils/capitalizeString';
 import api from '../../services/api';
 import PokedexEntry from './PokemonDescription/PokedexEntry';
 import Abilities from './Abilities';
-import BaseStats from './BaseStats';
+import BaseStats from './BaseStats/BaseStats';
 import Evolution from './Evolution/Evolution';
 
 export type RouteParams = {
@@ -34,7 +34,7 @@ const DetailScreen = () => {
    
    return (
       <ScrollView 
-         style={{marginLeft:25,marginRight:25}}
+         style={{marginLeft:25, marginRight:25, backgroundColor: 'white',}}
          showsVerticalScrollIndicator={false}>
       <View  style={ImageStyles(pokemon.types[0].name).imageWrapper}>
          <Image style={styles.pokemonImage} source={{uri: pokemon.animated_image || pokemon.image}} onError={() => {console.log('error:'+pokemon.image)}}/>
@@ -63,11 +63,12 @@ const DetailScreen = () => {
          <Text style = {styles.metricsWrapper}>{pokemon.height.toString()} ft / {pokemon.weight.toString()} lbs.</Text>
       </View>
 
-      <Abilities abilities={pokemon.abilities}/>
-
       <BaseStats stats={pokemon.stats}/>
 
       <Evolution pokemon={pokemon}></Evolution>
+
+      {/* <Abilities abilities={pokemon.abilities}/> */}
+
       </ScrollView>
    );
    };

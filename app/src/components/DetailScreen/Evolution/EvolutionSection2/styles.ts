@@ -16,8 +16,8 @@ export const Pokemon = styled.View`
 
 
 export const PokemonImage = styled.Image`
-  width: 90px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   margin-bottom: 16px;
 `;
 

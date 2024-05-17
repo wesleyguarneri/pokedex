@@ -10,29 +10,20 @@ import EvolutionSection2 from './EvolutionSection2';
 export const Content = styled.View`
   margin-top: 32px;
 `;
-const TextBox = styled.View`
+const EvoBox = styled.View`
     margin-horizontal: 10px;
     height: 180px;
-    background-color: rgba(0,0,0,.1);
     justify-content: center;
     border-radius: 5px;
 `;
 
-const CategoryBox = styled.View`
-    flex:1;
-    background-color: rgba(0,0,0,.2);
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-`;
-
 const CategoryText = styled.Text`
-    font-size:16px;
-    font-weight: 700;
-    text-align: center;
+    font-size:24px;
+    font-weight: 600;
+    
 `;
 const EvolutionContainer = styled.View`
     position: relative;
-    padding: 5px;
     flex: 6;
 `;
 
@@ -66,13 +57,10 @@ const Evolution = ({ pokemon }) => {
     }, [loading]);
 
     return (
-      <TextBox>
-        <CategoryBox>
-          <CategoryText>
-            Evolution
-          </CategoryText>
-        </CategoryBox>
-  
+      <EvoBox>
+        <CategoryText>
+          Evolution
+        </CategoryText>  
         {evolutions.first_evolution || evolutions.second_evolution ? (
           <EvolutionContainer>
             {evolutions.second_evolution && (
@@ -102,7 +90,7 @@ const Evolution = ({ pokemon }) => {
         ) : (
           <EvolutionContainer>{noResponseContent}</EvolutionContainer>
         )}
-      </TextBox>
+      </EvoBox>
     );
 };
 
