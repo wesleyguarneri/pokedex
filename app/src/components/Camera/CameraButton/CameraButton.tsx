@@ -1,11 +1,8 @@
 import { TouchableOpacity, Text, StyleSheet, Modal,TouchableHighlight, View } from "react-native";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import Icon from "react-native-vector-icons/Ionicons";
 import { useCallback, useState } from "react";
 import { useNavigation, NavigationProp, ParamListBase } from "@react-navigation/native";
 
-const press = () => console.log("hit")
-
-  
 const CameraButton = () => {
     const navigation = useNavigation<NavigationProp<ParamListBase>>();
 
@@ -16,11 +13,10 @@ const CameraButton = () => {
     return (
         <View>
         <TouchableOpacity style={styles.button} onPress={handleCameraNavigation}>
-            <Ionicons style={styles.icon} name="camera-outline"></Ionicons>
+            <Icon style={styles.icon} name="camera"></Icon>
         </TouchableOpacity>
         </View>
     )
-    
 };
 
 

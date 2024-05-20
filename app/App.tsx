@@ -1,11 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View } from 'react-native';
+
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import DetailScreen, { RouteParams } from './src/components/DetailScreen/DetailScreen';
-import HomeScreen from './src/components/HomeScreen/HomeScreen';
+import DetailScreen from './src/components/DetailScreen/DetailScreen';
 import ListScreen from './src/components/ListScreen/ListScreen';
 import CameraScreen from './src/components/Camera/CameraScreen/CameraScreen'
-import Pokemon from './src/components/Pokemon/Pokemon';
 import React from 'react';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import OptionButton from './src/components/Options/OptionButton/OptionButton'
@@ -43,11 +40,11 @@ export default function App() {
         component={DetailScreen} 
         />
 
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Camera"
           component={CameraScreen}
         >
-        </Stack.Screen> */}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
     

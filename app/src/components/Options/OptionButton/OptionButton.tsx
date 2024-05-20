@@ -1,5 +1,5 @@
 import { TouchableOpacity, Text, StyleSheet, Modal,TouchableHighlight, View } from "react-native";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import Ionicons from "react-native-vector-icons/Ionicons";
 import { useCallback, useState } from "react";
 const press = () => console.log("hit")
 

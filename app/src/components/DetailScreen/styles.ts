@@ -39,24 +39,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-start',
 
   },
-  typeWrapper: {
-    height: 30,
-    width: 90,
-    margin: 5,
-    borderRadius: 5,
-    justifyContent: 'center',
-    flexDirection: 'row',
-    backgroundColor: 'white',
-    borderWidth: 1,
-    borderColor: 'black',
-  },
-  typeText: {
-    color: 'black',
-    fontSize: 18,
-    fontWeight: '500',
-    marginTop: 3,
-    marginHorizontal: 5,
-  },
   metricsWrapper: {
     justifyContent: 'center',
     height: 25,
@@ -77,6 +59,24 @@ export const styles = StyleSheet.create({
 
       shadowOpacity: 1,
       backgroundColor: getColorByPokemonType(pokemonType),
+    },
+    typeWrapper: {
+      height: 30,
+      width: 90,
+      margin: 5,
+      borderRadius: 5,
+      justifyContent: 'center',
+      flexDirection: 'row',
+      backgroundColor: 'white',
+      borderWidth: 1,
+      borderColor: getColorByPokemonType(pokemonType),
+    },
+    typeText: {
+      color: getColorByPokemonType(pokemonType),
+      fontSize: 18,
+      fontWeight: '500',
+      marginTop: 3,
+      marginHorizontal: 5,
     },
   })
 

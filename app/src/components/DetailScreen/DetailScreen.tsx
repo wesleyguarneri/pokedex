@@ -46,14 +46,14 @@ const DetailScreen = () => {
       </View>
 
       <View style ={styles.typeContainer}>
-         <View style ={styles.typeWrapper}>
+         <View style ={ImageStyles(pokemon.types[0].name).typeWrapper}>
             <TypeIcon1 height='auto' width='20%'/>
-            <Text style= {styles.typeText}>{capitalizeString(pokemon.types[0].name)}</Text>
+            <Text style= {ImageStyles(pokemon.types[0].name).typeText}>{capitalizeString(pokemon.types[0].name)}</Text>
          </View>
          
-         {(pokemon.types.length > 1) ? <View style ={styles.typeWrapper}>
+         {(pokemon.types.length > 1) ? <View style ={ImageStyles(pokemon.types[1].name).typeWrapper}>
             <TypeIcon2 height='auto' width='20%'/>
-            <Text style= {styles.typeText}>{capitalizeString(pokemon.types[1].name)}</Text>
+            <Text style= {ImageStyles(pokemon.types[1].name).typeText}>{capitalizeString(pokemon.types[1].name)}</Text>
          </View> : null}
       </View>
 
