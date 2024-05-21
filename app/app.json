@@ -12,13 +12,15 @@
       "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": [
-      "**/*"
+      "**/*",
+      "/assets/**/*"
     ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.anonymous.pokedex",
       "infoPlist": {
-        "NSCameraUsageDescription": "Allow $(PRODUCT_NAME) to access your camera"
+        "NSCameraUsageDescription": "Allow $(PRODUCT_NAME) to access your camera",
+        "NSDocumentsFolderUsageDescription": "This app needs access to your documents folder to save files."
       }
     },
     "android": {
@@ -40,9 +42,12 @@
         {
           "cameraPermissionText": "$(PRODUCT_NAME) needs access to your Camera.",
           "enableMicrophonePermission": true,
-          "microphonePermissionText": "$(PRODUCT_NAME) needs access to your Microphone."
+          "microphonePermissionText": "$(PRODUCT_NAME) needs access to your Microphone.",
+          "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos."
+
         }
-      ]
+      ],
+      ["onnxruntime-react-native"]
     ],
     "extra": {
       "eas": {

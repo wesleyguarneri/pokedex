@@ -92,6 +92,10 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+  <key>NSPhotoLibraryUsageDescription</key>
+  <string>This app needs access to your photo library to save files.</string>
+  <key>NSDocumentsFolderUsageDescription</key>
+  <string>This app needs access to your documents folder to save files.</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

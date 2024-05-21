@@ -43,6 +43,11 @@ target 'pokedex' do
 
   use_frameworks! :linkage => podfile_properties['ios.useFrameworks'].to_sym if podfile_properties['ios.useFrameworks']
   use_frameworks! :linkage => ENV['USE_FRAMEWORKS'].to_sym if ENV['USE_FRAMEWORKS']
+  use_frameworks!
+
+  # choose one of the two below:
+  pod 'onnxruntime-objc'  # full package
+  #pod 'onnxruntime-mobile-objc'  # mobile package
 
   use_react_native!(
     :path => config[:reactNativePath],
